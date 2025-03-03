@@ -1,6 +1,6 @@
 # Docker Architecture and Key Concepts
 
-## Docker Architecture
+## ## 🚢 Docker Architecture Explained
 
 ### Docker Engine
 - Complete solution for building and containerizing applications
@@ -83,3 +83,77 @@
     │             │
     └─────────────┘
 ```
+
+
+This section explains the basic architecture of Docker and how core commands like `docker build`, `docker pull`, and `docker run` work.
+
+### 🧩 Overview
+
+Docker works in a **Client-Server** architecture, where:
+- **Docker CLI (Client):** You (the user) interact with Docker via CLI commands like `docker build`, `docker pull`, and `docker run`.
+- **Docker Daemon (Server):** The daemon handles all the actual work (building, pulling, running).
+- **Docker Hub (Registry):** A central repository to store and share images (can be public or private).
+
+---
+
+### ⚙️ Core Commands Workflow
+
+| Command       | Purpose | What Happens |
+|----------------|---------|-------------------|
+| `docker build` | Build an image from a Dockerfile | Docker Daemon reads instructions from **Dockerfile**, creates an **Image**, and stores it locally. |
+| `docker pull`  | Download an image from Docker Hub (or private registry) | Docker Daemon fetches the image and stores it locally. |
+| `docker run`   | Create and start a container from an image | Docker Daemon starts a **Container** (a running instance of the image). |
+
+---
+
+### 🔗 Full Process Flow
+
+```text
+                          +-------------------+
+                          | Docker CLI (User) |
+                          +-------------------+
+                                     |
+               -------------------------------------------------
+               |                       |                       |
+        docker build             docker pull              docker run
+               |                       |                       |
+               V                       V                       V
++----------------------+    +--------------------+    +-----------------+
+| Dockerfile (Source)  |    | Docker Hub (Public)|    | Docker Daemon   |
+| Build Instructions   |    | or Private Registry|    | Container Engine|
++----------------------+    +--------------------+    +-----------------+
+               |                       |                       |
+               V                       V                       V
+        +--------------------+   +------------------+    +-----------------+
+        | Docker Image       |   | Docker Image     |    | Running Container|
+        | (locally stored)   |   | (downloaded)     |    | (Instance of Img)|
+        +--------------------+   +------------------+    +-----------------+
+```
+
+---
+
+### 📊 Key Notes
+- **Images:** Read-only templates that define the environment.
+- **Containers:** Running instances of images (with isolated processes).
+- **Dockerfile:** A set of instructions to build a custom image.
+- **Registry:** Central place to store and distribute images (like Docker Hub).
+
+---
+
+### ✅ Quick Summary
+| Term | Meaning |
+|---|---|
+| Dockerfile | Defines how to build an image |
+| Image | Packaged environment (code + dependencies) |
+| Container | Running instance of an image |
+| Docker Daemon | Background service handling images, containers, and communication |
+| Docker Hub | Public registry to fetch or push images |
+
+---
+
+
+
+---
+
+Let me know if you want to embed the actual **image link** after you upload the diagram to your repo!
+
