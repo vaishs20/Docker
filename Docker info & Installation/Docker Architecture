@@ -1,0 +1,85 @@
+# Docker Architecture and Key Concepts
+
+## Docker Architecture
+
+### Docker Engine
+- Complete solution for building and containerizing applications
+- Client-server application with three main components:
+  - Server (Docker daemon)
+  - REST API for interfaces to talk to the daemon
+  - Command-line interface (CLI) client
+
+### Docker Daemon (dockerd)
+- Background service running on the host
+- Manages building, running, and distributing Docker containers
+- Listens for Docker API requests and processes them
+- Communicates with other daemons to manage Docker services
+
+### Docker Client
+- Primary way users interact with Docker
+- Executes commands (e.g., `docker run`, `docker build`, etc.)
+- Communicates with Docker daemon via the REST API
+- Can connect to multiple daemons
+- Available as command-line interface or with GUI options
+
+## Key Concepts
+
+### Docker Images
+- Read-only templates with instructions for creating Docker containers
+- Often based on other images with additional customization
+- Built using instructions in a Dockerfile
+- Composed of layers, making them efficient to store and transfer
+- Stored in registries like Docker Hub
+- Examples: ubuntu:22.04, nginx:latest, mysql:5.7
+
+### Docker Containers
+- Runnable instances of Docker images
+- Isolated from host and other containers
+- Can be run, started, stopped, moved, and deleted
+- Standardized and portable across different environments
+- Can be connected to multiple networks
+- Can have storage attached to them
+
+### Docker Registries
+- Repositories for storing and distributing Docker images
+- Docker Hub: Default public registry
+- Private registries: For storing proprietary images
+- Registry APIs: Enable automation of image distribution
+- Secure options for enterprise environments
+
+## Architecture Diagram
+```
+┌─────────────────────────────────────────────────┐
+│                Docker Host                       │
+│                                                  │
+│    ┌─────────────┐        ┌──────────────┐      │
+│    │             │        │ Container 1   │      │
+│    │  Docker     │        │ ┌──────────┐ │      │
+│    │  Client     │        │ │  App A   │ │      │
+│    │             │        │ └──────────┘ │      │
+│    └──────┬──────┘        └──────────────┘      │
+│           │                                      │
+│           │                ┌──────────────┐      │
+│           │                │ Container 2   │      │
+│    ┌──────▼──────┐         │ ┌──────────┐ │      │
+│    │             │         │ │  App B   │ │      │
+│    │  Docker     │         │ └──────────┘ │      │
+│    │  Daemon     │◄───────►└──────────────┘      │
+│    │             │                               │
+│    └─────┬───────┘         ┌──────────────┐      │
+│          │                 │ Container 3   │      │
+│          │                 │ ┌──────────┐ │      │
+│    ┌─────▼──────┐          │ │  App C   │ │      │
+│    │            │          │ └──────────┘ │      │
+│    │  Images    │◄────────►└──────────────┘      │
+│    │            │                               │
+│    └─────┬──────┘                               │
+│          │                                      │
+└──────────┼──────────────────────────────────────┘
+           │
+    ┌──────▼──────┐
+    │             │
+    │  Registry   │
+    │             │
+    └─────────────┘
+```
