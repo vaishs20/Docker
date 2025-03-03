@@ -149,11 +149,5 @@ Docker works in a **Client-Server** architecture, where:
 | Docker Daemon | Background service handling images, containers, and communication |
 | Docker Hub | Public registry to fetch or push images |
 
----
 
-
-
----
-
-Let me know if you want to embed the actual **image link** after you upload the diagram to your repo!
 
