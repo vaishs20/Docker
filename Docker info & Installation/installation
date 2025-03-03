@@ -1,0 +1,121 @@
+# Docker Installation Guide
+
+## Linux Installation (Ubuntu/Debian)
+
+### Update Package Index
+```bash
+sudo apt-get update
+```
+
+### Install Required Packages
+```bash
+sudo apt-get install ca-certificates curl gnupg lsb-release
+```
+
+### Add Docker's Official GPG Key
+```bash
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+```
+
+### Set Up Repository
+```bash
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+
+### Install Docker Engine
+```bash
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+
+### Verify Installation
+```bash
+sudo docker run hello-world
+```
+
+### Add User to Docker Group (to run Docker without sudo)
+```bash
+sudo usermod -aG docker $USER
+```
+*Note: Log out and back in for this to take effect*
+
+## Linux Installation (CentOS/RHEL)
+
+### Remove Old Versions (if any)
+```bash
+sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine
+```
+
+### Install Required Packages
+```bash
+sudo yum install -y yum-utils
+```
+
+### Set Up Repository
+```bash
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+```
+
+### Install Docker Engine
+```bash
+sudo yum install docker-ce docker-ce-cli containerd.io
+```
+
+### Start and Enable Docker
+```bash
+sudo systemctl start docker
+sudo systemctl enable docker
+```
+
+### Verify Installation
+```bash
+sudo docker run hello-world
+```
+
+### Add User to Docker Group
+```bash
+sudo usermod -aG docker $USER
+```
+*Note: Log out and back in for this to take effect*
+
+## Windows Installation
+
+### System Requirements
+- Windows 10 64-bit: Pro, Enterprise, or Education (Build 18362 or later)
+- Windows 11 64-bit
+- Enable Hyper-V and Containers Windows features
+
+### Docker Desktop Installation
+
+1. Download Docker Desktop from [Docker Hub](https://hub.docker.com/editions/community/docker-ce-desktop-windows/)
+
+2. Double-click the downloaded installer (`Docker Desktop Installer.exe`)
+
+3. Follow the installation wizard:
+   - Enable Hyper-V Windows features when prompted
+   - Allow the installer to log you out and restart if necessary
+
+4. After restart, Docker Desktop will start automatically
+
+### Verify Installation
+Open PowerShell or Command Prompt and run:
+```
+docker --version
+docker run hello-world
+```
+
+## Docker Compose Installation
+
+### Linux
+```bash
+sudo curl -L "https://github.com/docker/compose/releases/download/v2.17.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+### Verify Docker Compose Installation
+```bash
+docker-compose --version
+```
+
+### Windows
+*Note: Docker Compose is included with Docker Desktop for Windows*
