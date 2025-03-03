@@ -15,14 +15,15 @@ Docker is a platform for developing, shipping, and running applications in conta
 
 ## Docker vs. Virtual Machines
 
-| Feature | Docker | Virtual Machines |
-|---------|--------|-----------------|
-| Operating System | Shares host OS kernel | Requires full OS installation |
-| Resource Usage | Lightweight (MBs) | Heavyweight (GBs) |
-| Boot Time | Seconds | Minutes |
-| Isolation Level | Process-level isolation | Hardware-level isolation |
-| Performance | Near-native performance | Some overhead |
-| Portability | Highly portable across Linux distributions | Less portable between different hypervisors |
+| Feature            | Docker                         | Virtual Machines                |
+|--------------------|--------------------------------|----------------------------------|
+| Operating System   | Shares host OS kernel         | Requires full OS installation   |
+| Resource Usage     | Lightweight (MBs)              | Heavyweight (GBs)                |
+| Boot Time          | Seconds                        | Minutes                          |
+| Isolation Level    | Process-level isolation       | Hardware-level isolation        |
+| Performance        | Near-native performance       | Some overhead                    |
+| Portability        | Highly portable across Linux distributions | Less portable between different hypervisors |
+
 
 ## Key Benefits
 
