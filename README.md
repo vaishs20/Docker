@@ -1,5 +1,4 @@
 # Docker
-Here’s a comprehensive **Docker syllabus** tailored for SREs, DevOps engineers, and developers. This syllabus is structured to take you from **beginner to advanced** level, covering both theoretical concepts and hands-on practical exercises.
 
 ---
 
