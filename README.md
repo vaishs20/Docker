@@ -2,8 +2,6 @@
 
 ---
 
-### **Docker Syllabus**
-
 #### **1. Introduction to Docker**
    - What is Docker?
    - Why use Docker?
