@@ -24,7 +24,7 @@ Docker is a platform for developing, shipping, and running applications in conta
 | Performance        | Near-native performance       | Some overhead                    |
 | Portability        | Highly portable across Linux distributions | Less portable between different hypervisors |
 
-<img width="356" alt="image" src="https://github.com/user-attachments/assets/b82f3bfc-063f-4a17-b9fd-b4fd6cb6b682" />
+<img width="382" alt="image" src="https://github.com/user-attachments/assets/b738b8ce-3213-4656-9f85-2c6cf61db01d" />
 
 
 ## Key Benefits
